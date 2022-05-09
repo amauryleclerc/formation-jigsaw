@@ -1,5 +1,6 @@
 package com.sii.jigsaw.ui;
 
+import com.jigsaw.config.Test;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,7 +14,14 @@ public class ExoApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Properties properties = new Properties();
-        InputStream is = getClass().getResourceAsStream("/config/config.properties");
+//        Enumeration<URL> url = ClassLoader.getSystemResources("formation.jigsaw.config/config.properties");
+//        if(url.hasMoreElements()){
+//            properties.load(url.nextElement().openStream());
+//        } else{
+//            System.out.println("Impossible de charger le fichier de config");
+//        }
+
+        InputStream is = Test.class.getResourceAsStream("/config/config.properties");
         if(is != null){
             properties.load(is);
         } else{
